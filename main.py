@@ -6,10 +6,28 @@ from PIL import Image
 st.title('Streamlit 超入門')
 
 # st.write('DataFrame')
-st.write('Display Image')
+# st.write('Display Image')
+st.write('Interactive Widgets')
 
-img = Image.open('no_image.jpg')
-st.image(img, caption='No Image', use_column_width=True)
+
+# インタラクティブなウィジェット
+text = st.text_input('あなたの趣味を教えてください。')
+'あなたの趣味：', text
+
+option = st.selectbox(
+  'あなたが好きな数字を教えてください。',
+  list(range(1, 100))
+)
+'あなたの好きな数字は「', option, '」です。'
+
+condition = st.slider('あなたの今の調子は？', 0, 100, 50)
+'コンディション：', condition
+
+# 画像表示
+# if st.checkbox('Show Image'):
+#   img = Image.open('no_image.jpg')
+#   st.image(img, caption='No Image', use_column_width=True)
+
 
 # データフレーム
 # df = pd.DataFrame({
